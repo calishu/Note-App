@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Note App</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div class="inputField">
+            <form id="inputForm" action="/submit" method="post">
+                <input type="datetime-local" id="datetime" name="datetime" class="inputFieldInput" required>
+                <textarea class="inputFieldInput" id="inputText" name="inputText" required placeholder="What do you wanna Note?" rows="10" cols="50"></textarea>
+                <input type="hidden" id="entryId" name="entryId">
+
+                <table class="table1"> 
+                        <thead><tr>
+                            <td style="position: sticky; top: 0; background-color: #23292f;">ID</td>
+                            <td style="position: sticky; top: 0; background-color: #23292f;">Date</td>
+                            <td style="position: sticky; top: 0; background-color: #23292f;">Text</td>
+                            <td style="position: sticky; top: 0; background-color: #23292f;"></td>
+                        </tr></thead>
+                        <tr th:each="data : ${dataList}">
+                            <td th:text="${data.id}"></td>
+                            <td th:text="${#dates.format(data.date * 1000L, 'dd.MM.yyyy HH:mm')}"></td>
+                            <td th:text="${data.text}"></td>
+                            <td>
+                                <div class="iconContainer">
+                                    <img id="edit" src="icons/pen-to-square-solid.svg" th:attr="onclick=|editEntry(${data.id}, '${#dates.format(data.date * 1000L, 'dd-MM-yyyy HH:mm:ss')}', '${data.text}')|" />
+                                    <img id="delete" src="icons/trash-solid.svg" th:attr="onclick=|deleteEntry(${data.id})|" />
+                                </div>
+                            </td>
+                        </tr>
+                </table>
+                
+                <div class="firstRow">
+                    <button id="button" class="inputFieldButton">Add</button>
+                    <div style="margin-left: 1px;"><button type="button" onclick="redirectCSV()" class="inputFieldButton">Export as CSV</button></div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
