@@ -1,0 +1,93 @@
+body {
+    background-color: #23272A;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.inputField {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+    width: 50%;
+    gap: 15px;
+
+    background-color: #1A1D20;
+    border-radius: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.inputFieldInput, .inputFieldButton {
+    background-color: #23292f;
+    color: white;
+
+    border: none;
+    resize: none;
+    outline: none;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+
+    transition: background-color 0.25s ease;
+}
+
+.inputFieldButton:hover {
+    cursor: pointer;
+    background-color: #191e25;
+}
+
+.table1 {
+    display: block;
+
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    margin-bottom: 1px;
+
+    max-height: 200px;
+    overflow-y: auto;
+
+    padding: 1px;
+    text-align: left;
+    background-color: #23292f;
+    color: white;
+}
+
+.table1 td {
+    padding: 10px;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.iconContainer img {
+    width: 15px;
+    cursor: pointer;
+}
+
+
+.firstRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.firstRow .inputFieldInput {
+    flex-grow: 1;
+}
+
+.firstRow .inputFieldButton {
+    flex: 1;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
